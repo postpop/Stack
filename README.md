@@ -1,9 +1,8 @@
-Stack
-=====
+# Stack
 
 analyzing Ca imaging data
 
-# TODO
+## TODO
 - [] add proper documentation
 - [] test ROI finder
 - [] add example/test (data and code)
