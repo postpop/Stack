@@ -1,0 +1,64 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:////Applications/MATLAB_R2013b.app/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB File Help: Stack/addlistener</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB File Help: Stack/addlistener</td>
+            <td class="subheader-left"><a href="matlab:edit Stack/addlistener">View code for Stack/addlistener</a></td>
+            <td class="subheader-left"><a href="matlab:doc Stack/addlistener">Go to online doc for Stack/addlistener</a></td>
+            <td class="subheader-right"><a href="matlab:doc">Default Topics</a></td>
+         </tr>
+      </table>
+      <div class="title">Stack/addlistener</div>
+      <div class="helptext"><pre><!--helptext --> <span class="helptopic">addlistener</span>   Add listener for event.
+    EL = <span class="helptopic">addlistener</span>(HSOURCE, 'EVENTNAME', CALLBACK) creates a listener
+    for the event named EVENTNAME, the source of which is handle object 
+    HSOURCE.  If HSOURCE is an array of source handles, the listener
+    responds to the named event on any handle in the array.  CALLBACK
+    is a function handle that is invoked when the event is triggered.
+ 
+    EL = <span class="helptopic">addlistener</span>(HSOURCE, PROPERTY, 'EVENTNAME', CALLBACK) adds a 
+    listener for a property event.  EVENTNAME must be one of the strings 
+    'PreGet', 'PostGet', 'PreSet', and 'PostSet'.  PROPERTY must be either
+    a property name or cell array of property names, or a META.PROPERTY 
+    or array of META.PROPERTY.  The properties must belong to the class of 
+    HSOURCE.  If HSOURCE is scalar, PROPERTY can include dynamic 
+    properties.
+    
+    For all forms, <span class="helptopic">addlistener</span> returns an EVENT.LISTENER.  To remove a
+    listener, delete the object returned by <span class="helptopic">addlistener</span>.  For example,
+    DELETE(EL) calls the handle class delete method to remove the listener
+    and delete it from the workspace.
+ 
+    
+
+Help for <span class="helptopic">Stack/addlistener</span> is inherited from superclass <a href="matlab:helpwin handle">handle</a></pre></div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="matlab:doc Stack">Stack</a>, <a href="matlab:doc Stack/notify">Stack/notify</a>, <a href="matlab:doc Stack/delete">Stack/delete</a>, <a href="matlab:doc event.listener">event.listener</a>, 
+    <a href="matlab:doc meta.property">meta.property</a>, <a href="matlab:doc events">events</a>, <a href="matlab:doc dynamicprops">dynamicprops</a></div>
+      <!--Method-->
+      <div class="sectiontitle">Method Details</div>
+      <table class="class-details">
+         <tr>
+            <td class="class-detail-label">Defining Class</td>
+            <td>handle</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Access</td>
+            <td>public</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Sealed</td>
+            <td>false</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Static</td>
+            <td>false</td>
+         </tr>
+      </table>
+   </body>
+</html>
