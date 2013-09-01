@@ -6,4 +6,5 @@ analyzing Ca imaging data
 - [ ] add proper documentation
 - [ ] test ROI finder
 - [ ] add example/test (data and code)
+- [ ] add dependency report
 
