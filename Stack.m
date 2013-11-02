@@ -2,6 +2,7 @@ classdef Stack < handle
    
    properties
       stack
+      stack2
       width, height
       dt, T, frames
       lsmMeta
@@ -63,9 +64,16 @@ classdef Stack < handle
          end
          
          obj.stack = zeros(obj.width, obj.height, obj.frames, dataType);
+         if length(tiff(1).data)>1
+            obj.stack2 = zeros(obj.width, obj.height, obj.frames, dataType);
+         end
          for t = obj.frames:-1:1
             if iscell(tiff(t).data)
                thisFrame = reshape(tiff(t).data{1}, obj.width, obj.height);
+               if length(tiff(t).data)>1
+                  thisFrame2 = reshape(tiff(t).data{2}, obj.width, obj.height);                  
+                  obj.stack2(:,:,t) = thisFrame2;
+               end
             else
                thisFrame = reshape(tiff(t).data   , obj.width, obj.height);
             end
@@ -112,7 +120,7 @@ classdef Stack < handle
 %          % get initial transform for first frame
 %          [~, ~, tForm]  = imregister2(obj.stack(:,:,1), template, ...
 %             MODE,optimizer,metric);
-          obj.stack = mapFun(obj.stack, imregister, {template, MODE,optimizer,metric});
+          obj.stack = mapFun(obj.stack, @imregister, {template, MODE,optimizer,metric});
 %          for t = 1:size(obj.stack,3)
 %             % use previous frame's transform, TFORM, as initial condition
 %             % ONLY SUPPORTED R2013a?
@@ -143,7 +151,7 @@ classdef Stack < handle
          % ARGS
          %  KERNEL - ...
          obj.unflatten();
-         obj.stack = mapFun(obj.stack, imfilter, {flt, 'replicate'});
+         obj.stack = mapFun(obj.stack, @imfilter, {flt, 'replicate'});
          %for t = 1:obj.frames
          %   obj.stack(:,:,t) = imfilter(obj.stack(:,:,t), flt);
          %end
