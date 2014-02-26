@@ -261,11 +261,13 @@ classdef Stack < handle
       function [roiTrace, roiTraces] = roiTrace(obj,roiMask)
          % [roiTrace, roiTraces] = roiTrace(obj,roiMask);
          % ARGS
-         %  ROIMASK - binary matrix, width x height x (number of rois)
+         %  ROIMASK - binary matrix, width x height x (number of rois) - if
+         %  left empty will assume the full frame is the ROI
          % RETURNS
          %  roiTrace - average trace for each roi (time x (number of rois))
          % roiTraces - traces of each pixel in the roi (cell array of size
          %             (number of rois)
+         if nargin==1, roiMask = ones(obj.width, obj.height,1, 'int8'); end
          obj.flatten();
          roiStack = Stack(roiMask);
          roiStack.flatten();
